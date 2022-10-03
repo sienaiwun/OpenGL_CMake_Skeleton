@@ -22,6 +22,7 @@ add_definitions(-DGLEW_STATIC)
 add_subdirectory(lib/glfw EXCLUDE_FROM_ALL)
 add_subdirectory(lib/glew EXCLUDE_FROM_ALL)
 add_subdirectory(lib/glm EXCLUDE_FROM_ALL)
+add_subdirectory(lib/MoltenVK EXCLUDE_FROM_ALL)
 
 target_link_libraries(opengl-cmake-skeleton
   PRIVATE glfw
