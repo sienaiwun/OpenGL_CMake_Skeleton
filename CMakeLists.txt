@@ -1,5 +1,5 @@
 # Projects Settings
-cmake_minimum_required (VERSION 3.1)
+cmake_minimum_required (VERSION 3.12)
 project (opengl-cmake-skeleton)
 
 # The main executable
@@ -14,6 +14,14 @@ add_executable(opengl-cmake-skeleton
   src/Shader.hpp
   src/Shader.cpp
 )
+message(STATUS "Using find_package to locate Vulkan")
+find_package(Vulkan REQUIRED)
+message(STATUS "Vulkan FOUND = ${Vulkan_FOUND}")
+message(STATUS "Vulkan Include = ${Vulkan_INCLUDE_DIR}")
+message(STATUS "Vulkan Lib = ${Vulkan_LIBRARY}")
+
+
+
 
 set_property(TARGET opengl-cmake-skeleton PROPERTY CXX_STANDARD 11)
 target_compile_options(opengl-cmake-skeleton PRIVATE -Wall)
@@ -37,3 +45,6 @@ target_include_directories(opengl-cmake-skeleton
   PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/src
   PRIVATE ${CMAKE_CURRENT_BINARY_DIR}/src
 )
+
+target_include_directories(opengl-cmake-skeleton PRIVATE Vulkan::Vulkan)
+target_link_libraries(opengl-cmake-skeleton PRIVATE Vulkan::Vulkan)
