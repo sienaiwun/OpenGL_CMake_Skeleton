@@ -22,7 +22,7 @@ message(STATUS "Vulkan Lib = ${Vulkan_LIBRARY}")
 
 
 
-
+target_compile_features(opengl-cmake-skeleton  PRIVATE cxx_std_17)
 set_property(TARGET opengl-cmake-skeleton PROPERTY CXX_STANDARD 11)
 target_compile_options(opengl-cmake-skeleton PRIVATE -Wall)
 
